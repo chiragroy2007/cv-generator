@@ -1,0 +1,28 @@
+# System
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+.gemini/
+
+# Backend
+backend/venv/
+backend/__pycache__/
+backend/*.pyc
+backend/rendercv_output/
+backend/temp_test.yaml
+backend/last_error.txt
+# Generated content
+generated_cvs/
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+frontend/.env.*
+
+# Misc
+source-code/
+*.log

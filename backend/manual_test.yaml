@@ -1,0 +1,7 @@
+cv:
+  name: John Doe
+  location: Model City
+  email: john@example.com
+  phone: +1 123 456 7890
+design:
+  theme: classic

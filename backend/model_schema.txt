@@ -1,0 +1,466 @@
+RenderCV version: 2.6
+Found Model: RenderCVModel in rendercv.schema.models.rendercv_model
+Found Model: RenderCVModel in rendercv.schema.models.rendercv_model
+Found Model: RenderCVModel in rendercv.schema.models.rendercv_model
+Found Model: RenderCVModel in rendercv.schema.models.rendercv_model
+Found Model: RenderCVModel in rendercv.schema.models.rendercv_model
+Found Model: PublicationEntry in rendercv.schema.models.cv.entries.publication
+Found Model: Templates in rendercv.schema.models.design.classic_theme
+Found Model: RenderCVModel in rendercv.schema.models.rendercv_model
+Found Model: RenderCVModel in rendercv.schema.models.rendercv_model
+Found Model: RenderCVModel in rendercv.schema.models.rendercv_model
+Found Model: RenderCVModel in rendercv.schema.models.rendercv_model
+Found Model: BaseModelWithExtraKeys in rendercv.schema.models.base
+Found Model: BaseModelWithoutExtraKeys in rendercv.schema.models.base
+Found Model: BaseModelWithoutExtraKeys in rendercv.schema.models.base
+Found Model: CustomConnection in rendercv.schema.models.cv.custom_connection
+Found Model: BaseModelWithExtraKeys in rendercv.schema.models.base
+Found Model: BaseRenderCVSection in rendercv.schema.models.cv.section
+Found Model: CustomConnection in rendercv.schema.models.cv.custom_connection
+Found Model: Cv in rendercv.schema.models.cv.cv
+Found Model: SocialNetwork in rendercv.schema.models.cv.social_network
+Found Model: BaseEntry in rendercv.schema.models.cv.entries.bases.entry
+Found Model: BaseModelWithExtraKeys in rendercv.schema.models.base
+Found Model: BaseEntryWithComplexFields in rendercv.schema.models.cv.entries.bases.entry_with_complex_fields
+Found Model: BaseEntryWithDate in rendercv.schema.models.cv.entries.bases.entry_with_date
+Found Model: BaseEntry in rendercv.schema.models.cv.entries.bases.entry
+Found Model: BaseEntryWithDate in rendercv.schema.models.cv.entries.bases.entry_with_date
+Found Model: BaseEntry in rendercv.schema.models.cv.entries.bases.entry
+Found Model: BulletEntry in rendercv.schema.models.cv.entries.bullet
+Found Model: BaseEducationEntry in rendercv.schema.models.cv.entries.education
+Found Model: BaseEntry in rendercv.schema.models.cv.entries.bases.entry
+Found Model: BaseEntryWithComplexFields in rendercv.schema.models.cv.entries.bases.entry_with_complex_fields
+Found Model: EducationEntry in rendercv.schema.models.cv.entries.education
+Found Model: BaseEntry in rendercv.schema.models.cv.entries.bases.entry
+Found Model: BaseEntryWithComplexFields in rendercv.schema.models.cv.entries.bases.entry_with_complex_fields
+Found Model: BaseExperienceEntry in rendercv.schema.models.cv.entries.experience
+Found Model: ExperienceEntry in rendercv.schema.models.cv.entries.experience
+--- Schema for ExperienceEntry ---
+{
+  "$defs": {
+    "ArbitraryDate": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "ExactDate": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "integer"
+        }
+      ]
+    }
+  },
+  "additionalProperties": true,
+  "description": null,
+  "properties": {
+    "company": {
+      "examples": [
+        "Microsoft",
+        "Google",
+        "Princeton Plasma Physics Laboratory"
+      ],
+      "title": "Company",
+      "type": "string"
+    },
+    "position": {
+      "examples": [
+        "Software Engineer",
+        "Research Assistant",
+        "Project Manager"
+      ],
+      "title": "Position",
+      "type": "string"
+    },
+    "date": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ArbitraryDate"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "The date of this event in YYYY-MM-DD, YYYY-MM, or YYYY format, or any custom text like 'Fall 2023'. Use this for single-day or imprecise dates. For date ranges, use `start_date` and `end_date` instead.",
+      "examples": [
+        "2020-09-24",
+        "2020-09",
+        "2020",
+        "Fall 2023",
+        "Summer 2020"
+      ]
+    },
+    "start_date": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ExactDate"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "The start date in YYYY-MM-DD, YYYY-MM, or YYYY format.",
+      "examples": [
+        "2020-09-24",
+        "2020-09",
+        "2020"
+      ]
+    },
+    "end_date": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ExactDate"
+        },
+        {
+          "const": "present",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "The end date in YYYY-MM-DD, YYYY-MM, or YYYY format. Use \"present\" for ongoing events, or omit it to indicate the event is ongoing.",
+      "examples": [
+        "2024-05-20",
+        "2024-05",
+        "2024",
+        "present"
+      ],
+      "title": "End Date"
+    },
+    "location": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "examples": [
+        "Istanbul, T\u00fcrkiye",
+        "New York, NY",
+        "Remote"
+      ],
+      "title": "Location"
+    },
+    "summary": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "examples": [
+        "Led a team of 5 engineers to develop innovative solutions.",
+        "Completed advanced coursework in machine learning and artificial intelligence."
+      ],
+      "title": "Summary"
+    },
+    "highlights": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Bullet points for key achievements, responsibilities, or contributions.",
+      "examples": [
+        [
+          "Increased system performance by 40% through optimization.",
+          "Mentored 3 junior developers and conducted code reviews.",
+          "Implemented CI/CD pipeline reducing deployment time by 60%."
+        ]
+      ],
+      "title": "Highlights"
+    }
+  },
+  "required": [
+    "company",
+    "position"
+  ],
+  "title": "ExperienceEntry",
+  "type": "object"
+}
+---------------------------------
+Found Model: BaseEntry in rendercv.schema.models.cv.entries.bases.entry
+Found Model: BaseEntryWithComplexFields in rendercv.schema.models.cv.entries.bases.entry_with_complex_fields
+Found Model: BaseNormalEntry in rendercv.schema.models.cv.entries.normal
+Found Model: NormalEntry in rendercv.schema.models.cv.entries.normal
+Found Model: BaseEntry in rendercv.schema.models.cv.entries.bases.entry
+Found Model: NumberedEntry in rendercv.schema.models.cv.entries.numbered
+Found Model: BaseEntry in rendercv.schema.models.cv.entries.bases.entry
+Found Model: OneLineEntry in rendercv.schema.models.cv.entries.one_line
+Found Model: BaseEntry in rendercv.schema.models.cv.entries.bases.entry
+Found Model: BaseEntryWithDate in rendercv.schema.models.cv.entries.bases.entry_with_date
+Found Model: BasePublicationEntry in rendercv.schema.models.cv.entries.publication
+Found Model: PublicationEntry in rendercv.schema.models.cv.entries.publication
+Found Model: BaseEntry in rendercv.schema.models.cv.entries.bases.entry
+Found Model: ReversedNumberedEntry in rendercv.schema.models.cv.entries.reversed_numbered
+Found Model: BaseModelWithoutExtraKeys in rendercv.schema.models.base
+Found Model: BaseRenderCVSection in rendercv.schema.models.cv.section
+Found Model: BulletEntry in rendercv.schema.models.cv.entries.bullet
+Found Model: EducationEntry in rendercv.schema.models.cv.entries.education
+Found Model: ExperienceEntry in rendercv.schema.models.cv.entries.experience
+--- Schema for ExperienceEntry ---
+{
+  "$defs": {
+    "ArbitraryDate": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "ExactDate": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "integer"
+        }
+      ]
+    }
+  },
+  "additionalProperties": true,
+  "description": null,
+  "properties": {
+    "company": {
+      "examples": [
+        "Microsoft",
+        "Google",
+        "Princeton Plasma Physics Laboratory"
+      ],
+      "title": "Company",
+      "type": "string"
+    },
+    "position": {
+      "examples": [
+        "Software Engineer",
+        "Research Assistant",
+        "Project Manager"
+      ],
+      "title": "Position",
+      "type": "string"
+    },
+    "date": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ArbitraryDate"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "The date of this event in YYYY-MM-DD, YYYY-MM, or YYYY format, or any custom text like 'Fall 2023'. Use this for single-day or imprecise dates. For date ranges, use `start_date` and `end_date` instead.",
+      "examples": [
+        "2020-09-24",
+        "2020-09",
+        "2020",
+        "Fall 2023",
+        "Summer 2020"
+      ]
+    },
+    "start_date": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ExactDate"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "The start date in YYYY-MM-DD, YYYY-MM, or YYYY format.",
+      "examples": [
+        "2020-09-24",
+        "2020-09",
+        "2020"
+      ]
+    },
+    "end_date": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ExactDate"
+        },
+        {
+          "const": "present",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "The end date in YYYY-MM-DD, YYYY-MM, or YYYY format. Use \"present\" for ongoing events, or omit it to indicate the event is ongoing.",
+      "examples": [
+        "2024-05-20",
+        "2024-05",
+        "2024",
+        "present"
+      ],
+      "title": "End Date"
+    },
+    "location": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "examples": [
+        "Istanbul, T\u00fcrkiye",
+        "New York, NY",
+        "Remote"
+      ],
+      "title": "Location"
+    },
+    "summary": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "examples": [
+        "Led a team of 5 engineers to develop innovative solutions.",
+        "Completed advanced coursework in machine learning and artificial intelligence."
+      ],
+      "title": "Summary"
+    },
+    "highlights": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Bullet points for key achievements, responsibilities, or contributions.",
+      "examples": [
+        [
+          "Increased system performance by 40% through optimization.",
+          "Mentored 3 junior developers and conducted code reviews.",
+          "Implemented CI/CD pipeline reducing deployment time by 60%."
+        ]
+      ],
+      "title": "Highlights"
+    }
+  },
+  "required": [
+    "company",
+    "position"
+  ],
+  "title": "ExperienceEntry",
+  "type": "object"
+}
+---------------------------------
+Found Model: NormalEntry in rendercv.schema.models.cv.entries.normal
+Found Model: NumberedEntry in rendercv.schema.models.cv.entries.numbered
+Found Model: OneLineEntry in rendercv.schema.models.cv.entries.one_line
+Found Model: PublicationEntry in rendercv.schema.models.cv.entries.publication
+Found Model: ReversedNumberedEntry in rendercv.schema.models.cv.entries.reversed_numbered
+Found Model: BaseModelWithoutExtraKeys in rendercv.schema.models.base
+Found Model: SocialNetwork in rendercv.schema.models.cv.social_network
+Found Model: ClassicTheme in rendercv.schema.models.design.classic_theme
+Found Model: BaseModelWithoutExtraKeys in rendercv.schema.models.base
+Found Model: Bold in rendercv.schema.models.design.classic_theme
+Found Model: ClassicTheme in rendercv.schema.models.design.classic_theme
+Found Model: Colors in rendercv.schema.models.design.classic_theme
+Found Model: Connections in rendercv.schema.models.design.classic_theme
+Found Model: EducationEntry in rendercv.schema.models.design.classic_theme
+Found Model: Entries in rendercv.schema.models.design.classic_theme
+Found Model: ExperienceEntry in rendercv.schema.models.design.classic_theme
+--- Schema for ExperienceEntry ---
+{
+  "additionalProperties": false,
+  "properties": {
+    "main_column": {
+      "default": "**COMPANY**, POSITION\nSUMMARY\nHIGHLIGHTS",
+      "description": "Template for experience entry main column. Available placeholders:\n- `COMPANY`: Company name\n- `POSITION`: Job title/position\n- `SUMMARY`: Summary text\n- `HIGHLIGHTS`: Bullet points list\n- `LOCATION`: Location text\n- `DATE`: Formatted date or date range\n\nYou can also add arbitrary keys to entries and use them as UPPERCASE placeholders.\n\nThe default value is `**COMPANY**, POSITION\\nSUMMARY\\nHIGHLIGHTS`.",
+      "title": "Main Column",
+      "type": "string"
+    },
+    "date_and_location_column": {
+      "default": "LOCATION\nDATE",
+      "description": "Template for experience entry date/location column. Available placeholders:\n- `COMPANY`: Company name\n- `POSITION`: Job title/position\n- `SUMMARY`: Summary text\n- `HIGHLIGHTS`: Bullet points list\n- `LOCATION`: Location text\n- `DATE`: Formatted date or date range\n\nYou can also add arbitrary keys to entries and use them as UPPERCASE placeholders.\n\nThe default value is `LOCATION\\nDATE`.",
+      "title": "Date And Location Column",
+      "type": "string"
+    }
+  },
+  "title": "ExperienceEntry",
+  "type": "object"
+}
+---------------------------------
+Found Model: FontFamily in rendercv.schema.models.design.classic_theme
+Found Model: FontSize in rendercv.schema.models.design.classic_theme
+Found Model: Header in rendercv.schema.models.design.classic_theme
+Found Model: Highlights in rendercv.schema.models.design.classic_theme
+Found Model: Links in rendercv.schema.models.design.classic_theme
+Found Model: NormalEntry in rendercv.schema.models.design.classic_theme
+Found Model: OneLineEntry in rendercv.schema.models.design.classic_theme
+Found Model: Page in rendercv.schema.models.design.classic_theme
+Found Model: PublicationEntry in rendercv.schema.models.design.classic_theme
+Found Model: SectionTitles in rendercv.schema.models.design.classic_theme
+Found Model: Sections in rendercv.schema.models.design.classic_theme
+Found Model: SmallCaps in rendercv.schema.models.design.classic_theme
+Found Model: Summary in rendercv.schema.models.design.classic_theme
+Found Model: Templates in rendercv.schema.models.design.classic_theme
+Found Model: Typography in rendercv.schema.models.design.classic_theme
+Found Model: ClassicTheme in rendercv.schema.models.design.classic_theme
+Found Model: BaseModelWithoutExtraKeys in rendercv.schema.models.base
+Found Model: EnglishLocale in rendercv.schema.models.locale.english_locale
+Found Model: EnglishLocale in rendercv.schema.models.locale.english_locale
+Found Model: BaseModelWithExtraKeys in rendercv.schema.models.base
+Found Model: ClassicTheme in rendercv.schema.models.design.classic_theme
+Found Model: Cv in rendercv.schema.models.cv.cv
+Found Model: EnglishLocale in rendercv.schema.models.locale.english_locale
+Found Model: RenderCVModel in rendercv.schema.models.rendercv_model
+Found Model: Settings in rendercv.schema.models.settings.settings
+Found Model: BaseModelWithoutExtraKeys in rendercv.schema.models.base
+Found Model: RenderCommand in rendercv.schema.models.settings.render_command
+Found Model: BaseModelWithoutExtraKeys in rendercv.schema.models.base
+Found Model: RenderCommand in rendercv.schema.models.settings.render_command
+Found Model: Settings in rendercv.schema.models.settings.settings
+Found Model: ValidationContext in rendercv.schema.models.validation_context
+Found Model: RenderCVModel in rendercv.schema.models.rendercv_model
+Found Model: ValidationContext in rendercv.schema.models.validation_context
+Found Model: Cv in rendercv.schema.models.cv.cv
+Found Model: RenderCVModel in rendercv.schema.models.rendercv_model
